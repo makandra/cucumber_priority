@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors = ["Henning Koch"]
   s.email = %q{github@makandra.de}
   s.homepage = %q{http://github.com/makandra/cucumber_priority}
-  s.summary = %q{Create records from Cucumber features without writing step definitions.}
-  s.description = %q{Cucumber Factory allows you to create ActiveRecord models from your Cucumber features without writing step definitions for each model.}
+  s.summary = %q{Overridable step definitions for Cucumber}
+  s.description = %q{cucumber_priority provides a way to mark step definitions as overridable, meaning that they can always be overshadowed by a more specific version without raising an error.}
   s.license = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
