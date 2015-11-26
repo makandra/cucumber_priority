@@ -1,0 +1,7 @@
+doc
+pkg
+*.gem
+.bundle
+.idea
+.rvmrc
+log/*.log
