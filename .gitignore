@@ -5,3 +5,4 @@ pkg
 .idea
 .rvmrc
 log/*.log
+.byebug_history
