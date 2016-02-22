@@ -8,12 +8,12 @@ describe Cucumber::Runtime, 'extended with cucumber_priority' do
     prepare_cucumber_example
   end
 
-  describe '#step_match' do
+  describe '#step_matches' do
 
     it 'returns an overriding step if the only other match is a overridable step' do
       overridable_step = @main.Given(/^there is a movie with a (.*?) tone$/){ }.overridable
       overriding_step = @main.Given(/^there is a movie with a funny tone$/){ }
-      match = support_code.step_match('there is a movie with a funny tone')
+      match = first_step_match('there is a movie with a funny tone')
       match.step_definition.should == overriding_step
       match.should be_a(Cucumber::StepMatch)
     end
@@ -23,7 +23,7 @@ describe Cucumber::Runtime, 'extended with cucumber_priority' do
       @main.Given(/^there is a movie with a [^ ]+ tone$/){}
       @main.Given(/^there is a movie with a funny tone$/){}
       expect do
-        support_code.step_match('there is a movie with a funny tone')
+        first_step_match('there is a movie with a funny tone')
       end.to raise_error(Cucumber::Ambiguous)
     end
 
@@ -31,7 +31,7 @@ describe Cucumber::Runtime, 'extended with cucumber_priority' do
       overridable_step = @main.Given(/^there is a movie with a (.*?) tone$/){ }.overridable
       higher_overridable_step = @main.Given(/^there is a movie with a [^ ]+ tone$/){ }.overridable(:priority => 5)
       lower_overridable_step = @main.Given(/^there is a movie with a [^ ]+ tone$/){ }.overridable(:priority => -5)
-      match = support_code.step_match('there is a movie with a funny tone')
+      match = first_step_match('there is a movie with a funny tone')
       match.step_definition.should == higher_overridable_step
       match.should be_a(Cucumber::StepMatch)
     end
