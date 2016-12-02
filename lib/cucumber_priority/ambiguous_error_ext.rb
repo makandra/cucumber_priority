@@ -1,14 +1,10 @@
-module Cucumber
-  class Ambiguous
+module CucumberAmbiguousWithMatches
+  attr_reader :matches
 
-    attr_reader :matches
-
-    def initialize_with_storing_matches(step_name, matches, *args)
-      @matches = matches
-      initialize_without_storing_matches(step_name, matches, *args)
-    end
-
-    alias_method_chain :initialize, :storing_matches
-
+  def initialize(step_name, matches, *args)
+    @matches = matches
+    super(step_name, matches, *args)
   end
 end
+
+Cucumber::Ambiguous.prepend CucumberAmbiguousWithMatches
