@@ -7,26 +7,30 @@ module Cucumber
         # array of Cucumber::StepMatch objects.
         # This method raises Cucumber::Ambiguous if the array has more than one element.
 
-        def step_matches_with_priority(*args)
-          step_matches_without_priority(*args)
-        rescue Ambiguous => e
-          resolve_ambiguity_through_priority(e)
+        module StepMatchesWithPriority
+          def step_matches(*args)
+            super(*args)
+          rescue Ambiguous => e
+            resolve_ambiguity_through_priority(e)
+          end
         end
 
-        alias_method_chain :step_matches, :priority
+        prepend StepMatchesWithPriority
 
       else
         # Cucumber 2.1 or lower has a single method #step_match which returns a
         # single Cucumber::StepMatch.
         # This method raises Cucumber::Ambigiuous if there are two or more matches.
 
-        def step_match_with_priority(*args)
-          step_match_without_priority(*args)
-        rescue Ambiguous => e
-          resolve_ambiguity_through_priority(e).first
+        module StepMatchesWithPriority
+          def step_match(*args)
+            super(*args)
+          rescue Ambiguous => e
+            resolve_ambiguity_through_priority(e).first
+          end
         end
 
-        alias_method_chain :step_match, :priority
+        prepend StepMatchesWithPriority
 
         # This method doesn't exist in old Cucumbers.
         # We define it so our specs have a unified API to match steps.
