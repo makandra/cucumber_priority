@@ -1,14 +1,7 @@
-# encoding: utf-8
-
 $: << File.join(File.dirname(__FILE__), "/../../lib" )
 require 'cucumber_priority'
+require 'gemika'
 
-if defined?(RSpec)
-  RSpec.configure do |config|
-    if config.respond_to?(:expect_with)
-      config.expect_with(:rspec) do |c|
-        c.syntax = [:expect, :should]
-      end
-    end
-  end
-end
+Dir["#{File.dirname(__FILE__)}/support/*.rb"].sort.each {|f| require f}
+
+Gemika::RSpec.configure_should_syntax

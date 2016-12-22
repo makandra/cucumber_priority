@@ -48,7 +48,7 @@ A non-overridable step will always win over an overridable step regardless of it
 Supported Cucumber versions
 ----------------------------
 
-cucumber_priority is tested against Cucumber 1.2, 1.3 and 2.1.
+cucumber_priority is tested against Cucumber 1.3, 2.4 and 3.0.
 
 
 Installation
@@ -64,10 +64,18 @@ Now run `bundle install` and restart your server.
 Development
 -----------
 
-- We run tests against several Cucumber versions.
-- You can bundle all versions with `rake all:install`.
-- You can run specs against all versions with `rake all:spec`.
-See `spec/support/database.sample.yml` for an example.
+There are tests in `spec`. We only accept PRs with tests. To run tests:
+
+- Install Ruby 2.3.3
+- Install development dependencies using `bundle install`
+- Run tests using `bundle exec rspec`
+
+We recommend to test large changes against multiple versions of Ruby and multiple dependency sets. Supported combinations are configured in `.travis.yml`. We provide some rake tasks to help with this:
+
+- Install development dependencies using `bundle matrix:install`
+- Run tests using `bundle matrix:spec`
+
+Note that we have configured Travis CI to automatically run tests in all supported Ruby versions and dependency sets after each push. We will only merge pull requests after a green Travis build.
 
 If you would like to contribute:
 
