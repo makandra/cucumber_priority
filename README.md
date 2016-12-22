@@ -48,7 +48,7 @@ A non-overridable step will always win over an overridable step regardless of it
 Supported Cucumber versions
 ----------------------------
 
-cucumber_priority is tested against Cucumber 1.2, 1.3 and 2.1.
+cucumber_priority is tested against Cucumber 1.3, 2.4 and 3.0.
 
 
 Installation
