@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-require_relative 'cucumber_helper'
-
 describe Cucumber::Runtime, 'extended with cucumber_priority' do
 
   before(:each) do
