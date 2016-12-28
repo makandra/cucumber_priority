@@ -2,7 +2,6 @@ PATH
   remote: ..
   specs:
     cucumber_priority (0.1.2)
-      activesupport
       cucumber
 
 GEM
@@ -62,4 +61,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.13.6
+   1.13.7

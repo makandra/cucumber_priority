@@ -18,6 +18,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('cucumber')
-  s.add_dependency('activesupport')
 
 end
