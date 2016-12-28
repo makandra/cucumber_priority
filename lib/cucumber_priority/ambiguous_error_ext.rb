@@ -8,7 +8,7 @@ module Cucumber
       initialize_without_storing_matches(step_name, matches, *args)
     end
 
-    alias_method_chain :initialize, :storing_matches
+    CucumberPriority::Util.alias_chain self, :initialize, :storing_matches
 
   end
 end

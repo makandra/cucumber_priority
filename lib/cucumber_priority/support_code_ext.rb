@@ -13,7 +13,7 @@ module Cucumber
           resolve_ambiguity_through_priority(e)
         end
 
-        alias_method_chain :step_matches, :priority
+        CucumberPriority::Util.alias_chain self, :step_matches, :priority
 
       else
         # Cucumber 2.1 or lower has a single method #step_match which returns a
@@ -26,7 +26,7 @@ module Cucumber
           resolve_ambiguity_through_priority(e).first
         end
 
-        alias_method_chain :step_match, :priority
+        CucumberPriority::Util.alias_chain self, :step_match, :priority
 
         # This method doesn't exist in old Cucumbers.
         # We define it so our specs have a unified API to match steps.
