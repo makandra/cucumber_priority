@@ -1,5 +1,8 @@
-cucumber_priority - overridable step definitions for Cucumber
-=============================================================
+cucumber_priority [![Build Status](https://travis-ci.org/makandra/cucumber_priority.svg?branch=master)](https://travis-ci.org/makandra/cucumber_priority)
+=================
+
+Overridable step definitions for Cucumber
+-----------------------------------------
 
 [Cucumber](https://github.com/cucumber/cucumber-ruby) raises an error if more than one step definitions match a step.
 
