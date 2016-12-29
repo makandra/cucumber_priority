@@ -92,4 +92,5 @@ I'm very eager to keep this gem leightweight and on topic. If you're unsure whet
 Credits
 -------
 
-Henning Koch from [makandra](http://www.makandra.com/)
+Henning Koch from [makandra](https://makandra.com/)
+
