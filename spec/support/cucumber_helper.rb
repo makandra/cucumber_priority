@@ -16,7 +16,7 @@ def load_ruby_language
 end
 
 def invoke_cucumber_step(step)
-  support_code.step_match(step).invoke(nil) # nil means no multiline args
+  first_step_match(step).invoke(nil) # nil means no multiline args
 end
 
 def support_code
