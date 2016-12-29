@@ -21,7 +21,7 @@ Given /^there is a movie with a (.*?) tone$/ do
   ...
 end.overridable
 
-Given there is a movie with a funny tone do
+Given /^there is a movie with a funny tone$/ do
   ...
 end
 ```
