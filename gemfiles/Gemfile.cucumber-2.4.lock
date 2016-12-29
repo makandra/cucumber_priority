@@ -1,18 +1,12 @@
 PATH
   remote: ..
   specs:
-    cucumber_priority (0.1.2)
+    cucumber_priority (0.2.0)
       cucumber
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.5.1)
-      i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
-      minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
-      tzinfo (~> 1.1)
     builder (3.2.2)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -28,9 +22,6 @@ GEM
     diff-lcs (1.2.5)
     gemika (0.3.2)
     gherkin (4.0.0)
-    i18n (0.7.0)
-    json (1.8.3)
-    minitest (5.8.4)
     multi_json (1.12.1)
     multi_test (0.1.2)
     rake (10.1.0)
@@ -47,15 +38,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    thread_safe (0.3.5)
-    tzinfo (1.2.2)
-      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 4.2.0)
   cucumber (~> 2.4.0)
   cucumber_priority!
   gemika
