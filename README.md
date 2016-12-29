@@ -16,17 +16,21 @@ Examples
 
 To mark a step definition as overridable, call `#overridable` on the definition object:
 
-    Given /^there is a movie with a (.*?) tone$/ do
-      ...
-    end.overridable
+```ruby
+Given /^there is a movie with a (.*?) tone$/ do
+  ...
+end.overridable
 
-    Given there is a movie with a funny tone do
-      ...
-    end
+Given there is a movie with a funny tone do
+  ...
+end
+```
 
 The following step will now **no longer raise `Cucumber::Ambiguous`**:
 
-    Given there is a movie with a funny tone
+```cucumber
+Given there is a movie with a funny tone
+```
 
 If a step matches more than one non-overridable steps, Cucumber will still raise `Cucumber::Ambiguous`.
 
@@ -35,13 +39,15 @@ If a step matches more than one non-overridable steps, Cucumber will still raise
 
 You can define priorities for overridable steps by passing an numeric `:priority` option to `#overridable:`
 
-    Given /^there is a movie with a (.*?) tone$/ do
-      ...
-    end.overridable(priority: 1)
+```ruby
+Given /^there is a movie with a (.*?) tone$/ do
+  ...
+end.overridable(priority: 1)
 
-    Given /^there is a movie with a (sad|upbeat|disturbing) tone$/ do
-      ...
-    end.overridable(priority: 5)
+Given /^there is a movie with a (sad|upbeat|disturbing) tone$/ do
+  ...
+end.overridable(priority: 5)
+```
 
 A higher priority wins the match.
 
@@ -59,7 +65,9 @@ Installation
 
 In your `Gemfile` say:
 
-    gem 'cucumber_priority'
+```ruby
+gem 'cucumber_priority'
+```
 
 Now run `bundle install` and restart your server.
 
