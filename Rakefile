@@ -8,3 +8,4 @@ rescue LoadError
 end
 
 task :default => 'matrix:spec'
+task :cucumber => 'matrix:cucumber'
