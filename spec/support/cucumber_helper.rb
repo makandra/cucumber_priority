@@ -1,18 +1,10 @@
 def prepare_cucumber_example
   @runtime = Cucumber::Runtime.new
-  language = load_ruby_language
   scenario = double('scenario', :language => 'en', :accept_hook? => true)
-  language.send(:begin_scenario, scenario)
-  @world = language.current_world
+  @runtime.send(:begin_scenario, scenario)
   @main = Object.new
-  @main.extend(Cucumber::RbSupport::RbDsl)
+  @main.extend(Cucumber::Glue::Dsl)
   # @runtime.before(scenario)
-end
-
-def load_ruby_language
-  language = support_code.ruby if support_code.respond_to?(:ruby)
-  language ||= support_code.load_programming_language('rb')
-  language
 end
 
 def invoke_cucumber_step(step)
