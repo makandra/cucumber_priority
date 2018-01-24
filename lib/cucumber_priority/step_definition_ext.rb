@@ -1,6 +1,6 @@
 module Cucumber
-  module RbSupport
-    class RbStepDefinition
+  module Glue
+    class StepDefinition
 
       def overridable(options = {})
         @overridable = true
