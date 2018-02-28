@@ -12,13 +12,13 @@ module CucumberPriority
       elsif overriding.size == 1
         # If our ambiguity is due to another overridable step,
         # we can use the overriding step
-        overriding
+        overriding.first
       elsif overriding.size == 0
         # If we have multiple overridable steps, we use the one
         # with the highest priority.
         overridable.sort_by { |match|
           - match.step_definition.priority
-        }
+        }.first
       end
     end
 
@@ -34,7 +34,7 @@ if Cucumber::VERSION >= '3'
         def call_with_priority(*args)
           call_without_priority(*args)
         rescue Ambiguous => e
-          CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)
+          [CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)]
         end
 
         CucumberPriority::Util.alias_chain self, :call, :priority
@@ -54,7 +54,7 @@ elsif Cucumber::VERSION >= '2.3'
         def step_matches_with_priority(*args)
           step_matches_without_priority(*args)
         rescue Ambiguous => e
-          CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)
+          [CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)]
         end
 
         CucumberPriority::Util.alias_chain self, :step_matches, :priority
@@ -74,7 +74,7 @@ else
         def step_match_with_priority(*args)
           step_match_without_priority(*args)
         rescue Ambiguous => e
-          CucumberPriority::Resolver.resolve_ambiguity_through_priority(e).first
+          CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)
         end
 
         CucumberPriority::Util.alias_chain self, :step_match, :priority
