@@ -11,9 +11,9 @@ gemfile:
 matrix:
   exclude:
     - gemfile: gemfiles/Gemfile.cucumber-3.0
-      rvm: 2.1.10
-    - gemfile: gemfiles/Gemfile.cucumber-3.0
       rvm: 1.8.7
+    - gemfile: gemfiles/Gemfile.cucumber-3.0
+      rvm: 2.1.10 # cucumber 3 wants ruby >= 2.2
     - gemfile: gemfiles/Gemfile.cucumber-2.4
       rvm: 1.8.7
     - gemfile: gemfiles/Gemfile.cucumber-1.3
