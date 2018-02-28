@@ -57,7 +57,7 @@ A non-overridable step will always win over an overridable step regardless of it
 Supported Cucumber versions
 ----------------------------
 
-cucumber_priority is tested against Cucumber 1.3, 2.4 and 3.0.
+cucumber_priority is tested against Cucumber 1.3, 2.4, 3.0 and 3.1.
 
 
 Installation
@@ -77,7 +77,7 @@ Development
 
 There are tests in `spec`. We only accept PRs with tests. To run tests:
 
-- Install Ruby 2.3.3
+- Install Ruby 2.5.0
 - Install development dependencies using `bundle install`
 - Run tests using `bundle exec rspec`
 
