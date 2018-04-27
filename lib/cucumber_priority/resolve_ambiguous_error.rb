@@ -44,13 +44,15 @@ if Cucumber::VERSION >= '3'
 
 elsif Cucumber::VERSION >= '2.3'
 
+
+  # Cucumber 2.3 or higher has methods that return an array of Cucumber::StepMatch objects.
+  # These methods raise Cucumber::Ambiguous if the array has more than one element.
+  # Why this is implemented twice, noone knows...
+  #
   module Cucumber
+
     class Runtime
       class SupportCode
-
-        # Cucumber 2.3 or higher has a single method #step_matches which returns an
-        # array of Cucumber::StepMatch objects.
-        # This method raises Cucumber::Ambiguous if the array has more than one element.
         def step_matches_with_priority(*args)
           step_matches_without_priority(*args)
         rescue Ambiguous => e
@@ -60,6 +62,21 @@ elsif Cucumber::VERSION >= '2.3'
         CucumberPriority::Util.alias_chain self, :step_matches, :priority
       end
     end
+
+    module StepMatchSearch
+      class AssertUnambiguousMatch
+
+        def call_with_priority(*args)
+          call_without_priority(*args)
+        rescue Ambiguous => e
+          [CucumberPriority::Resolver.resolve_ambiguity_through_priority(e)]
+        end
+
+        CucumberPriority::Util.alias_chain self, :call, :priority
+
+      end
+    end
+
   end
 
 else
