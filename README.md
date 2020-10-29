@@ -1,4 +1,4 @@
-cucumber_priority [![Build Status](https://travis-ci.org/makandra/cucumber_priority.svg?branch=master)](https://travis-ci.org/makandra/cucumber_priority)
+cucumber_priority [![Tests](https://github.com/makandra/cucumber_priority/workflows/Tests/badge.svg)](https://github.com/makandra/cucumber_priority/actions?query=branch:master)
 =================
 
 Overridable step definitions for Cucumber
@@ -81,12 +81,12 @@ There are tests in `spec`. We only accept PRs with tests. To run tests:
 - Install development dependencies using `bundle install`
 - Run tests using `bundle exec rspec`
 
-We recommend to test large changes against multiple versions of Ruby and multiple dependency sets. Supported combinations are configured in `.travis.yml`. We provide some rake tasks to help with this:
+We recommend to test large changes against multiple versions of Ruby and multiple dependency sets. Supported combinations are configured in `.github/workflows/test.yml`. We provide some rake tasks to help with this:
 
 - Install development dependencies using `bundle matrix:install`
 - Run tests using `bundle matrix:spec`
 
-Note that we have configured Travis CI to automatically run tests in all supported Ruby versions and dependency sets after each push. We will only merge pull requests after a green Travis build.
+Note that we have configured GitHub Actions to automatically run tests in all supported Ruby versions and dependency sets after each push. We will only merge pull requests after a green workflow build.
 
 If you would like to contribute:
 
