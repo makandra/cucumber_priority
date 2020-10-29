@@ -77,7 +77,7 @@ Development
 
 There are tests in `spec`. We only accept PRs with tests. To run tests:
 
-- Install Ruby 2.5.0
+- Install Ruby 2.5.3
 - Install development dependencies using `bundle install`
 - Run tests using `bundle exec rspec`
 
