@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Overridable step definitions for Cucumber}
   s.description = %q{cucumber_priority provides a way to mark step definitions as overridable, meaning that they can always be overshadowed by a more specific version without raising an error.}
   s.license = 'MIT'
+  s.metadata = { 'rubygems_mfa_required' => 'true' }
 
   s.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(gemfiles|bin|test|spec|features)/})
