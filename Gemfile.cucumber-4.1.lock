@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cucumber_priority (0.3.2)
+    cucumber_priority (0.3.3)
       cucumber
 
 GEM
