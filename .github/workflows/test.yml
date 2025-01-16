@@ -34,6 +34,8 @@ jobs:
           gemfile: Gemfile.cucumber-5.3
         - ruby: 3.3.6
           gemfile: Gemfile.cucumber-5.3
+        - ruby: 3.4.1
+          gemfile: Gemfile.cucumber-5.3
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
     steps:
