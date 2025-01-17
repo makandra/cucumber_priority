@@ -58,6 +58,6 @@ jobs:
     - name: Bundle
       run: |
         gem install bundler:${{ matrix.bundler }}
-        bundle install --no-deployment
+        bundle _${{ matrix.bundler }}_ install --no-deployment
     - name: Run tests
       run: bundle exec rake current_rspec
