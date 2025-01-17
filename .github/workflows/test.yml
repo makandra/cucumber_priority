@@ -23,29 +23,37 @@ jobs:
         - ruby: 2.5.3
           gemfile: Gemfile.cucumber-3.1
           bundler: 2.3.27
+
         - ruby: 2.6.6
           gemfile: Gemfile.cucumber-4.1
           bundler: 2.3.27
         - ruby: 2.6.6
           gemfile: Gemfile.cucumber-5.3
           bundler: 2.3.27
+
         - ruby: 2.7.2
           gemfile: Gemfile.cucumber-4.1
           bundler: 2.3.27
         - ruby: 2.7.2
           gemfile: Gemfile.cucumber-5.3
           bundler: 2.3.27
+
         - ruby: 3.2.0
           gemfile: Gemfile.cucumber-4.1
-          bundler: 2.6.3
+          bundler: 2.5.23
         - ruby: 3.2.0
           gemfile: Gemfile.cucumber-5.3
-          bundler: 2.6.3
+          bundler: 2.5.23
+
+        - ruby: 3.3.6
+          gemfile: Gemfile.cucumber-4.1
+          bundler: 2.5.23
         - ruby: 3.3.6
           gemfile: Gemfile.cucumber-5.3
           bundler: 2.5.23
+
         - ruby: 3.4.1
-          gemfile: Gemfile.cucumber-5.3
+          gemfile: Gemfile.cucumber-6.1
           bundler: 2.6.3
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
