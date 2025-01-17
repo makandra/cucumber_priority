@@ -2,24 +2,29 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "cucumber_priority/version"
 
-Gem::Specification.new do |s|
-  s.name = %q{cucumber_priority}
-  s.version = CucumberPriority::VERSION
-  s.authors = ["Henning Koch"]
-  s.email = %q{github@makandra.de}
-  s.homepage = %q{http://github.com/makandra/cucumber_priority}
-  s.summary = %q{Overridable step definitions for Cucumber}
-  s.description = %q{cucumber_priority provides a way to mark step definitions as overridable, meaning that they can always be overshadowed by a more specific version without raising an error.}
-  s.license = 'MIT'
-  s.metadata = { 'rubygems_mfa_required' => 'true' }
+Gem::Specification.new do |spec|
+  spec.name = %q{cucumber_priority}
+  spec.version = CucumberPriority::VERSION
+  spec.authors = ["Henning Koch"]
+  spec.email = %q{github@makandra.de}
+  spec.homepage = %q{http://github.com/makandra/cucumber_priority}
+  spec.summary = %q{Overridable step definitions for Cucumber}
+  spec.description = %q{cucumber_priority provides a way to mark step definitions as overridable, meaning that they can always be overshadowed by a more specific version without raising an error.}
+  spec.license = 'MIT'
+  spec.metadata = {
+    'rubygems_mfa_required' => 'true',
+    'bug_tracker_uri' => 'https://github.com/makandra/cucumber_priority/issues',
+    'changelog_uri' => 'https://github.com/makandra/cucumber_priority/blob/master/CHANGELOG.md',
+    'source_code_uri' => 'https://github.com/makandra/cucumber_priority',
+  }
 
-  s.files         = `git ls-files -z`.split("\x0").reject do |f|
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(gemfiles|bin|test|spec|features)/})
   end
-  s.bindir        = "exe"
-  s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 
-  s.add_dependency('cucumber')
+  spec.add_dependency('cucumber')
 
 end
