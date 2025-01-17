@@ -51,9 +51,12 @@ jobs:
         - ruby: 3.3.6
           gemfile: Gemfile.cucumber-5.3
           bundler: 2.5.23
+        - ruby: 3.3.6
+          gemfile: Gemfile.cucumber-6.1
+          bundler: 2.5.23
 
         - ruby: 3.4.1
-          gemfile: Gemfile.cucumber-6.1
+          gemfile: Gemfile.cucumber-9.2
           bundler: 2.6.3
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
@@ -68,4 +71,4 @@ jobs:
         gem install bundler:${{ matrix.bundler }}
         bundle _${{ matrix.bundler }}_ install --no-deployment
     - name: Run tests
-      run: bundle exec rake current_rspec
+      run: bundle _${{ matrix.bundler }}_ exec rake current_rspec
