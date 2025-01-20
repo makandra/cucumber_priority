@@ -92,7 +92,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  aruba
+  aruba (>= 2.0.0)
   base64
   bigdecimal
   cucumber (~> 9.2.1)
