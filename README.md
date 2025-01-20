@@ -83,11 +83,19 @@ There are tests in `spec`. We only accept PRs with tests. To run tests:
 
 We recommend to test large changes against multiple versions of Ruby and multiple dependency sets. Supported combinations are configured in `.github/workflows/test.yml`. We provide some rake tasks to help with this:
 
+- Run tests for a specific version of Ruby, Bundler and Gemfile:
+  ```sh
+    rbenv shell 3.4.1
+    export BUNDLE_GEMFILE=Gemfile.cucumber-9.2
+    bundle _2.6.3_ install
+    bundle _2.6.3_ exec rake current_rspec
+  ```
 - Install development dependencies using `bundle matrix:install`
 - Run tests using `bundle matrix:spec`
+- Run tests for all rubies:
 
   ```sh
-  for version in "2.5.3" "2.6.6" "2.7.2" "3.2.0" "3.3.6"; do rbenv shell $version && bundle install && bundle exec rake matrix:install && bundle exec rake matrix:spec; done
+  for version in "2.5.3" "2.6.6" "2.7.2" "3.2.0" "3.3.6" "3.4.1"; do rbenv shell $version && bundle install && bundle exec rake matrix:install && bundle exec rake matrix:spec; done
   ```
   
 Note that we have configured GitHub Actions to automatically run tests in all supported Ruby versions and dependency sets after each push. We will only merge pull requests after a green workflow build.

@@ -5,8 +5,14 @@ module CucumberHelper
   end
 
   def create_empty_cucumber_project
-    in_current_dir do
-      FileUtils.cp_r(File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'features')), 'features')
+    if defined?(Aruba::VERSION) && Gem::Version.new(Aruba::VERSION) >= Gem::Version.new('1.0.0')
+      in_current_directory do
+        FileUtils.cp_r(File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'features')), 'features')
+      end
+    else
+      in_current_dir do
+        FileUtils.cp_r(File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'features')), 'features')
+      end
     end
   end
 
@@ -22,7 +28,11 @@ Feature: Cucumber priority test
 
 #{content}
     GHERKIN
-    run_simple("cucumber #{feature_path}", options.fetch(:fail_on_error, true))
+    if defined?(Aruba::VERSION) && Gem::Version.new(Aruba::VERSION) >= Gem::Version.new('1.0.0')
+      run_command_and_stop("cucumber #{feature_path}", options.slice(:fail_on_error))
+    else
+      run_simple("cucumber #{feature_path}", options.fetch(:fail_on_error, true))
+    end
   end
 end
 
