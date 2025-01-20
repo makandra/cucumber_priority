@@ -55,6 +55,7 @@ GEM
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
     gemika (0.8.4)
+    logger (1.6.5)
     mini_mime (1.1.5)
     multi_test (1.1.0)
     mutex_m (0.3.0)
@@ -97,6 +98,7 @@ DEPENDENCIES
   cucumber (~> 9.2.1)
   cucumber_priority!
   gemika (>= 0.8.1)
+  logger
   mutex_m
   ostruct
   rake (> 10.0)

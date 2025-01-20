@@ -5,7 +5,7 @@ module CucumberHelper
   end
 
   def create_empty_cucumber_project
-    in_current_dir do
+    in_current_directory do
       FileUtils.cp_r(File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'features')), 'features')
     end
   end
@@ -22,7 +22,7 @@ Feature: Cucumber priority test
 
 #{content}
     GHERKIN
-    run_simple("cucumber #{feature_path}", options.fetch(:fail_on_error, true))
+    run_command_and_stop("cucumber #{feature_path}", options.slice(:fail_on_error))
   end
 end
 
