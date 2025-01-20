@@ -1,6 +1,6 @@
 require 'aruba'
 
-if Gem::Version.new(Aruba::VERSION) >= Gem::Version.new('1.0.0')
+if defined?(Aruba::VERSION) && Gem::Version.new(Aruba::VERSION) >= Gem::Version.new('1.0.0')
   require 'aruba/rspec'
 else
   require 'aruba/api'
