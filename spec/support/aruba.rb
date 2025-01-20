@@ -1,4 +1,4 @@
-require 'aruba/version'
+require 'aruba'
 
 if Gem::Version.new(Aruba::VERSION) >= Gem::Version.new('1.0.0')
   require 'aruba/rspec'
