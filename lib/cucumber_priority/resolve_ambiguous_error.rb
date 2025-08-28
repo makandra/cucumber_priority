@@ -25,7 +25,7 @@ module CucumberPriority
   end
 end
 
-if Cucumber::VERSION >= '3'
+if Gem::Version.new(Cucumber::VERSION) > Gem::Version.new('3.0')
 
   module Cucumber
     module StepMatchSearch
@@ -42,7 +42,7 @@ if Cucumber::VERSION >= '3'
     end
   end
 
-elsif Cucumber::VERSION >= '2.3'
+elsif Gem::Version.new(Cucumber::VERSION) >= Gem::Version.new('2.3')
 
 
   # Cucumber 2.3 or higher has methods that return an array of Cucumber::StepMatch objects.

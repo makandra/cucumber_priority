@@ -1,4 +1,4 @@
-step_definition_class = Cucumber::VERSION >= '3' ? Cucumber::Glue::StepDefinition : Cucumber::RbSupport::RbStepDefinition
+step_definition_class = Gem::Version.new(Cucumber::VERSION) > Gem::Version.new('3.0') ? Cucumber::Glue::StepDefinition : Cucumber::RbSupport::RbStepDefinition
 
 step_definition_class.class_eval do
 
