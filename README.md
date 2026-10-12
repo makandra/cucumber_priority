@@ -1,5 +1,10 @@
+> [!important]
+> This gem is no longer maintained. Use [Mandoline](https://github.com/makandra/mandoline) to migrate your E2E tests from Cucumber to RSpec.
+
+
 cucumber_priority [![Tests](https://github.com/makandra/cucumber_priority/workflows/Tests/badge.svg)](https://github.com/makandra/cucumber_priority/actions?query=branch:master)
 =================
+
 
 Overridable step definitions for Cucumber
 -----------------------------------------
